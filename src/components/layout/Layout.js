@@ -3,6 +3,7 @@ import React from 'react';
 
 // import Top from 'components/layout/components/Top';
 // import Page from 'components/layout/components/Page';
+import Hamburger from 'components/layout/components/Hamburger';
 import Nav from 'components/nav/Nav';
 
 import * as Styled from './LayoutStyled';
@@ -13,26 +14,25 @@ class Layout extends React.Component {
 		var { history } = this.props;
 		return (
 			<Styled.Layout>
-				<Styled.LayoutFromTop>
 
-					{/* TOP content (header) */}
-					<Styled.Top>
-						<h1 className="logo right">WebClock</h1>
-					</Styled.Top>
-					<Styled.LayoutFromLeft>
+				{/* TOP content */}
+				<div className="top">
+					<h1 className="logo right">WebClock</h1>
+				</div>
 
-						{/* LEFT  content (nav) */}
-						{this.props.pages && (
-							<Nav pages={this.props.pages} pathname={"history.location.pathname"} />
-						)}
+				{/* main content */}
+				<div className="content">
 
-						{/* RIGHT content (page) */}
-						<Styled.Page>
-							{this.props.children}
-						</Styled.Page>
+					{/* NAV  content */}
+					<Hamburger className="hamburger" />
+					<Nav className="nav" pages={this.props.pages} pathname={"history.location.pathname"} />
+
+					{/* PAGE content */}
+					<div className="page">
+						{this.props.children}
+					</div>
 						
-					</Styled.LayoutFromLeft>
-				</Styled.LayoutFromTop>
+				</div>
 			</Styled.Layout>
 		);
 	}

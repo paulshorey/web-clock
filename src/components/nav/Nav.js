@@ -11,7 +11,7 @@ class ComponentNav extends React.Component {
 				<NavLink
 					exact
 					key={link.url + index}
-					className="link"
+					className="item"
 					activeClassName="active"
 					to={link.url}
 				>
@@ -24,7 +24,7 @@ class ComponentNav extends React.Component {
 
 	render() {
 		return (
-			<Styled.Nav>
+			<Styled.Nav className={this.props.className}>
 				{this.renderLinks(this.props.pages)}
 			</Styled.Nav>
 		);

@@ -174,7 +174,7 @@ injectGlobal`
 
 	/**************************************************
 		
-		ETC, GLOBAL STYLES:
+		GLOBAL STYLES:
 
 	**************************************************/
 	* {
@@ -182,11 +182,11 @@ injectGlobal`
 		vertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */
 	}
 	body {
-		background: #000;
-		color: #fff;
+		background: ${window.theme.colorBackground};
+		color: ${window.theme.colorMain};
 	}
 	a {
-		color: rgb(100, 123, 146);
+		color: ${window.theme.colorLink};
 		text-decoration: none;
 	}
 	.nav_left {
