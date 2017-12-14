@@ -5,9 +5,9 @@ import * as Styled from './indexStyled';
 class ComponentPageContent extends React.Component {
 	render() {
 		return (
-            <Styled.Content >
+            <Styled.Content>
 
-              <p>Dashboard page content</p>
+              <p>WebClock page content</p>
 
             </Styled.Content>
 		);

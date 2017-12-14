@@ -7,7 +7,7 @@ class ComponentPageContent extends React.Component {
 		return (
             <Styled.Content >
 
-              <p>Dashboard page content</p>
+              <p>Schedule page content</p>
 
             </Styled.Content>
 		);

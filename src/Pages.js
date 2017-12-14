@@ -6,44 +6,52 @@ import Layout from 'components/layout/Layout';
 var pages = [
 	{
 		url: '/',
+		name: 'dashboard',
+		icon: <span className="icon-newspaper"></span>,
 		component: function() {
 			return require('pages/dashboard').default;
 		},
 	},
-	// {
-	// 	url: '/webclock',
-	// 	component: function() {
-	// 		return require('pages/webclock').default;
-	// 	},
-	// },
-	// {
-	// 	url: '/timecard',
-	// 	component: function() {
-	// 		return require('pages/timecard').default;
-	// 	},
-	// },
-	// {
-	// 	url: '/schedule',
-	// 	component: function() {
-	// 		return require('pages/schedule').default;
-	// 	},
-	// },
+	{
+		url: '/webclock',
+		name: 'web clock',
+		icon: <span className="icon-stopwatch"></span>,
+		component: function() {
+			return require('pages/webclock').default;
+		},
+	},
+	{
+		url: '/timecard',
+		name: 'time card',
+		icon: <span className="icon-stack"></span>,
+		component: function() {
+			return require('pages/timecard').default;
+		},
+	},
+	{
+		url: '/schedule',
+		name: 'schedule',
+		icon: <span className="icon-calendar"></span>,
+		component: function() {
+			return require('pages/schedule').default;
+		},
+	},
 ];
 
 // <Route />s, to be put into <Router />
+// includes <Layout /> which includes <Top /> and <Nav /> etc
 var Routes = [];
 pages.forEach(function(page, index) {
 	if (page.component) {
 		Routes.push(
 			<Route
+				exact
 				key={index}
 				path={page.url}
 				render={(props)=>{
-					var RouteComponent = page.component();
+					const RouteComponent = page.component();
 					return (
-						<Layout history={props.history} pages={pages}>
-							<RouteComponent history={props.history} page={page} />
-						</Layout>
+						<RouteComponent history={props.history} page={page} />
 					);
 				}}
 			/>
@@ -58,9 +66,11 @@ class ComponentPages extends React.Component {
 	render() {
 		return (
 			<Router>
-				<Switch>
-					{Routes}
-				</Switch>
+				<Layout pages={pages}>
+					<Switch>
+						{Routes}
+					</Switch>
+				</Layout>
 			</Router>
 		);
 	}

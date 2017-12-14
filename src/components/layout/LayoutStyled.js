@@ -5,14 +5,16 @@ import styled from 'styled-components';
 	* Built version (as in "npm run build") can't handle "%" height on a container layout element. So, using "vh" instead of "%" wherever possible
 */
 
-export const Container = styled.div`
+export const Layout = styled.div`
 `;
 
-export const FromTop = styled.div`    
+export const LayoutFromTop = styled.div`    
 `;
 
-export const FromLeft = styled.div`    
+export const LayoutFromLeft = styled.div`    
 `;
 
-export const Content = styled.div`    
+export const Top = styled.div`
+`;
+export const Page = styled.div`
 `;
