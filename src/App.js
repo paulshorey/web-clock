@@ -56,7 +56,7 @@ pages.forEach(function(page, index) {
 				key={index}
 				path={page.url}
 				render={(props)=>{
-					// reduxStore.dispatch(reduxActions.pageChange(page));
+					window.store.page = page;
 					const RouteComponent = page.component();
 					return (
 						<RouteComponent page={page} />

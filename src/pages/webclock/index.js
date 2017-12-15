@@ -8,9 +8,6 @@ import * as reduxActions from "redux/actions";
 import * as Styled from './indexStyled';
 
 class ComponentPageContent extends React.Component {
-	componentWillMount(){
-		this.props.dispatch(reduxActions.pageChange(this.props.page));
-	}
 	render() {
 		return (
             <Styled.Content>

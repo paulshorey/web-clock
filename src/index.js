@@ -1,7 +1,10 @@
 // global theme variables ${window.theme} for global styles -- will also be available to component styles without having to import again:
-import 'window/theme.js';
+import 'window/theme';
 // global styles:
-import 'indexStyled.js';
+import 'indexStyled';
+
+// windowX
+import 'window/store';
 
 // normal react stuff:
 import React from 'react';

@@ -8,9 +8,6 @@ import * as reduxActions from "redux/actions";
 import * as Styled from './indexStyled';
 
 class ComponentPageContent extends React.Component {
-	componentWillMount(){
-		this.props.dispatch(reduxActions.pageChange(this.props.page));
-	}
 	render() {
 		return (
             <Styled.Content >
@@ -61,6 +58,9 @@ class ComponentPageContent extends React.Component {
 
 	// Or, we can separate concerns, and use MobX or `}<a href="https://medium.com/@paulshorey/reactjs-a-simpler-way-than-redux-mobx-to-manage-dynamic-global-data-7450bc2400a9" target="_blank" rel="noopener noreferrer">WindowX</a>{` to manage our UI and routes state
 	// And then we can use Redux for what it's best at - state of content and data - large amounts of it, spread throughout multiple components
+
+	// This is exactly what I plan to do next with this codebase - finish making it into helpful bootstrap app which uses only the most modern and intuitive architecture
+
 
 `}
 </pre>
