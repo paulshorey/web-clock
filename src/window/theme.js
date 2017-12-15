@@ -3,7 +3,7 @@ export default (window.theme = {
 	sidebarWidth: '16rem',
 	perimeterPadding: '1rem',
 	fontFamily: 'Helvetica, sans-serif',
-	colorBackground: '#fff',
+	colorBackground: '#014270',
 	colorMain: '#CBE4F5',
 	colorLink: 'orange',
 	colorDark1: '#014270',

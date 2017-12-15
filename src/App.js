@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // global data
 import {Provider} from "react-redux";
 import reduxStore from "redux/store";
-import * as reduxActions from "redux/actions";
 
 // app components
 import Layout from 'components/layout/Layout';

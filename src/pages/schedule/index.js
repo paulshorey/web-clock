@@ -15,18 +15,14 @@ class ComponentPageContent extends React.Component {
 		return (
             <Styled.Content >
 
-              <p>We now have "react-router v4", or "react-router-dom". But this code test requires "State based routing with Redux". How do do this?</p>
-							<p>
-								The real question, I realized, is: "Why do this?". Why use Redux to manage routes? The reasons I could think of is:
-							</p>
-							<div>
-								<ul>
-									<li>If we have to load the routes from an external API --- however, there are more to consider with this, so this is beyond the scope of a simple code test.</li>
-									<li>We probably just want to --- initiate routes programmatically, and update the global data store when the routes change, so that we may display the title/url of the current route in random parts of the application, or use that knowledge to load appropriate components.</li>
-								</ul>
-							</div>
-							<div>
-								Simple solution:
+				<div>
+					We now have React-Router-Dom (react-router v4), which is very robust and has certain advantages.<br />
+					But this code test requires "State based routing with Redux".<br />
+					How do do this? I've used Redux-Router before, but felt like trying a new thing here...<br />
+					<br />
+				</div>
+				<div>
+					Knowing what route you're on, without Redux:
 <pre>
 {`
 	import { withRouter } from 'react-router-dom';
@@ -39,23 +35,41 @@ class ComponentPageContent extends React.Component {
 	
 `}
 </pre>
-							</div>
-							<div>
-								Next - how do I get the active route name to show up in the header?
+				</div>
+				<div>
+					But how do I get the active route name to show up in the header?
 <pre>
 {`
-	// well, time to install Redux and React-Redux and make it work with react-router-dom
-	// for this project, I will try to get that to work, because I already set this up using react-router-dom, so I am curious if and how it will work
-	
-	// now after fiddling with this for a while, I do not think redux is a good match with react-router-dom (react-router v4), 
-	// at least not if you want to use redux to manage the routes or even current route
-
-	// but there are advantages to using react-router-dom (react-router v4), and as long as you can use something else to remember the routes or current route, then it would be no problem
-	// luckily there is something else, but I'm out of time now :P
+	// lets add Redux...
+	...
+	componentWillMount(){
+		this.props.dispatch(reduxActions.pageChange(this.props.page));
+	}
+	...
+	export default connect()(ComponentPageContent);
 	
 `}
 </pre>
-						</div>
+				</div>
+				<div>
+					This is not perfect. We not only have to update our route info manually, but have to copy this fix to every page component.
+<pre>
+{`
+	// unfortunately with React-Router-Dom (react-router v4), it is not possible to do this in one place and have it take effect whenever the route changes
+	// 
+
+	// so, lets keep using Redux-Router
+
+	// Or, we can separate concerns, and use MobX or `}<a href="https://medium.com/@paulshorey/reactjs-a-simpler-way-than-redux-mobx-to-manage-dynamic-global-data-7450bc2400a9" target="_blank" rel="noopener noreferrer">WindowX</a>{` to manage our UI and routes state
+	// And then we can use Redux for what it's best at - state of content and data
+
+	// Redux is a handful to manage for normal use cases - but using Redux for already complicated concerns like routing or UI may add unnecessary complexity
+	// Not that its not possible, nor do I propose to scrap an existing architecture for this experimental approach (yet). I'm just throwing out ideas.
+	// Now this is exactly what I will do next with this codebase - make it into a modern open-source bootstrap for React v16, React-Router-v4, Redux for data and content, and MobX or WindowX for UI and Routing
+
+`}
+</pre>
+				</div>
 
             </Styled.Content>
 		);
