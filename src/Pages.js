@@ -7,7 +7,7 @@ var pages = [
 	{
 		url: '/',
 		name: 'dashboard',
-		icon: <span className="icon-newspaper"></span>,
+		icon: <span className="fontIcon icon-newspaper"></span>,
 		component: function() {
 			return require('pages/dashboard').default;
 		},
@@ -15,7 +15,7 @@ var pages = [
 	{
 		url: '/webclock',
 		name: 'web clock',
-		icon: <span className="icon-stopwatch"></span>,
+		icon: <span className="fontIcon icon-stopwatch"></span>,
 		component: function() {
 			return require('pages/webclock').default;
 		},
@@ -23,15 +23,15 @@ var pages = [
 	{
 		url: '/timecard',
 		name: 'time card',
-		icon: <span className="icon-stack"></span>,
+		icon: <span className="fontIcon icon-stack"></span>,
 		component: function() {
 			return require('pages/timecard').default;
 		},
 	},
 	{
 		url: '/schedule',
-		name: 'schedule',
-		icon: <span className="icon-calendar"></span>,
+		name: 'redux routing?',
+		icon: <span className="fontIcon icon-calendar"></span>,
 		component: function() {
 			return require('pages/schedule').default;
 		},

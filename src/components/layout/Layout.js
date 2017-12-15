@@ -11,25 +11,27 @@ import * as Styled from './LayoutStyled';
 class Layout extends React.Component {
 
 	render() {
-		var { history } = this.props;
 		return (
-			<Styled.Layout>
+			<Styled.Layout className="Layout">
 
 				{/* TOP content */}
 				<div className="top">
-					<h1 className="logo right">WebClock</h1>
+					<h1 className="logo right">WebCLOCK <span className="fontIcon icon-stopwatch"></span></h1>
 				</div>
 
 				{/* main content */}
 				<div className="content">
 
 					{/* NAV  content */}
-					<Hamburger className="hamburger" />
-					<Nav className="nav" pages={this.props.pages} pathname={"history.location.pathname"} />
+					<label className="hamburger label">|||</label>
+					<input type="checkbox" className="hamburger input"></input>
+					<Nav className="nav" pages={this.props.pages} />
 
 					{/* PAGE content */}
 					<div className="page">
-						{this.props.children}
+						<div className="pageContent">
+							{this.props.children}
+						</div>
 					</div>
 						
 				</div>

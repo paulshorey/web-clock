@@ -1,6 +1,6 @@
 export default (window.theme = {
-	headerHeight: '122px',
-	sidebarWidth: '244px',
+	headerHeight: '4rem',
+	sidebarWidth: '20rem',
 	fontFamily: 'Helvetica, sans-serif',
 	colorBackground: '#fff',
 	colorMain: 'rgba(0, 0, 0, 0.25)',

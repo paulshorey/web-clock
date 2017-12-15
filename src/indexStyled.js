@@ -104,72 +104,41 @@ injectGlobal`
 		* use this as a template - copy/paste all @media blocks, then clear out any index-related styles
 
 	**************************************************/
-	
 	/* 
 		desktop 
 	*/
 	@media (min-width: 751px) and (min-height:601px) {
 	}
-	
 	/* 
 		NOT desktop 
 	*/
 	@media (max-width: 750px), (max-height:600px) {
 	}
-
 	/* 
 		tablet portrait 
 	*/
 	@media (min-width:601px) and (max-width: 750px) and (min-height: 601px) {
 	}
-
 	/* 
 		tablet landscape 
 	*/
 	@media (min-width: 750px) and (max-height: 600px) {
 	}
-
 	/* 
 		phone portrait 
 	*/
 	@media (max-width: 600px) {
 	}
-
 	/* 
 		phone landscape 
 	*/
 	@media (min-width:601px) and (max-width: 750px) and (max-height: 600px) {
 	}
-
 	/* 
 		NOT phone
 	*/
 	@media (min-width: 751px), (min-width:601px) and (min-height: 601px) {
 	}
-
-
-	/**************************************************
-		
-
-		ICONS:
-
-	**************************************************/
-	/* .fontIcon,
-	.fontIcon:before {
-		width:1em;
-		height:1em;
-		line-height:1em; 
-		font-size:1em;
-		padding:0;
-		margin:0;
-		text-align:center;
-		display:inline-block;
-		vertical-align:baseline;
-	}
-	.fontIcon.alignWithText,
-	.fontIcon.alignWithText:before {
-		vertical-align:top;
-	} */
 
 
 	/**************************************************
