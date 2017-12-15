@@ -146,13 +146,10 @@ injectGlobal`
 		GLOBAL STYLES:
 
 	**************************************************/
-	* {
-		font-family: ${window.theme.fontFamily};
-		vertical-align:middle; /* hope this doesn't mess anything up - but in my experience, having vertical-align middle was always more useful than not - PS */
-	}
 	body {
 		background: ${window.theme.colorBackground};
 		color: ${window.theme.colorMain};
+		font-family: ${window.theme.fontFamily};
 	}
 	a {
 		color: ${window.theme.colorLink};

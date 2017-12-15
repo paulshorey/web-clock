@@ -56,16 +56,11 @@ class ComponentPageContent extends React.Component {
 <pre>
 {`
 	// unfortunately with React-Router-Dom (react-router v4), it is not possible to do this in one place and have it take effect whenever the route changes
-	// 
 
 	// so, lets keep using Redux-Router
 
 	// Or, we can separate concerns, and use MobX or `}<a href="https://medium.com/@paulshorey/reactjs-a-simpler-way-than-redux-mobx-to-manage-dynamic-global-data-7450bc2400a9" target="_blank" rel="noopener noreferrer">WindowX</a>{` to manage our UI and routes state
-	// And then we can use Redux for what it's best at - state of content and data
-
-	// Redux is a handful to manage for normal use cases - but using Redux for already complicated concerns like routing or UI may add unnecessary complexity
-	// Not that its not possible, nor do I propose to scrap an existing architecture for this experimental approach (yet). I'm just throwing out ideas.
-	// Now this is exactly what I will do next with this codebase - make it into a modern open-source bootstrap for React v16, React-Router-v4, Redux for data and content, and MobX or WindowX for UI and Routing
+	// And then we can use Redux for what it's best at - state of content and data - large amounts of it, spread throughout multiple components
 
 `}
 </pre>
