@@ -8,7 +8,7 @@ export const Nav = styled.div`
             color:${window.theme.colorOnDark2};
             white-space:nowrap;
             &.active {
-                color:${window.theme.colorOnDark1};
+                color:${window.theme.colorDark1};
             }
             .fontIcon {
                 padding-right:0.5rem;

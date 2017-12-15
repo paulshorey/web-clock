@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-const perimeterPadding = '1rem';
 
 /*
 	notes:
@@ -14,25 +13,6 @@ export const Layout = styled.div`
 			display:flex;
 			flex-direction:row;
 			flex-grow:1;
-		}
-		.top {
-			background:${window.theme.colorDark1};
-			color:${window.theme.colorOnDark1};
-			height:${window.theme.headerHeight};
-			font-size:2rem;
-			> * {
-				padding:${perimeterPadding};
-			}
-			.logo {
-				line-height:100%;
-				&.right {
-					float:right;
-				}
-				.icon-stopwatch {
-					font-size: 78%;
-					vertical-align: top;
-				}
-			}
 		}
 
 
@@ -49,7 +29,7 @@ export const Layout = styled.div`
 			left:0;
 			top:0;
 			color:${window.theme.colorOnDark1};
-			padding:${perimeterPadding};
+			padding:${window.theme.perimeterPadding};
 			/* show@ mobile widths */
 			display:none;
 			@media (max-width: 750px) {
@@ -62,7 +42,7 @@ export const Layout = styled.div`
 			position:absolute;
 			left:0;
 			top:0;
-			margin:${perimeterPadding};
+			margin:${window.theme.perimeterPadding};
 			/* the hack... */
 			opacity:0;
 			/* the nav sidebar element... */
@@ -73,8 +53,11 @@ export const Layout = styled.div`
 		}
 		.nav {
 			width:${window.theme.sidebarWidth};
+			@media (min-width: 751px) {
+				min-width:${window.theme.sidebarWidth};
+			}
 			> * {
-				padding:${perimeterPadding};
+				padding:${window.theme.perimeterPadding};
 			}
 			/* hide@ mobile widths */
 			max-width:${window.theme.sidebarWidth};
@@ -91,15 +74,15 @@ export const Layout = styled.div`
 		*/
 		.page {
 			background:${window.theme.colorDark3};
-			background:${window.theme.colorOnDark3};
+			color:${window.theme.colorDark1};
 			flex-grow:1;
 			> * {
-				padding:${perimeterPadding};
+				padding:${window.theme.perimeterPadding};
 			}
 			font-size:1rem;
 			.pageContent {
 				@media (max-width: 750px) {
-					min-width: calc(100vw - ${perimeterPadding} - ${perimeterPadding});
+					min-width: calc(100vw - ${window.theme.perimeterPadding} - ${window.theme.perimeterPadding});
 				}
 			}
 		}

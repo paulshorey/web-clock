@@ -1,8 +1,16 @@
 import React from 'react';
 
+// store
+import { connect } from 'react-redux';
+import * as reduxActions from "redux/actions";
+
+// style
 import * as Styled from './indexStyled';
 
 class ComponentPageContent extends React.Component {
+	componentWillMount(){
+		this.props.dispatch(reduxActions.pageChange(this.props.page));
+	}
 	render() {
 		return (
             <Styled.Content>
@@ -14,4 +22,4 @@ class ComponentPageContent extends React.Component {
 	}
 }
 
-export default ComponentPageContent;
+export default connect()(ComponentPageContent);

@@ -22,6 +22,12 @@ class ComponentNav extends React.Component {
 		});
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.location !== prevProps.location) {
+			console.log('route changed', this.props.location);
+		}
+	  }
+
 	render() {
 		return (
 			<Styled.Nav className={this.props.className + " Nav"}>

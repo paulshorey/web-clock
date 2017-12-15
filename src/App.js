@@ -1,12 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// global data
+import {Provider} from "react-redux";
+import reduxStore from "redux/store";
+import * as reduxActions from "redux/actions";
+
+// app components
 import Layout from 'components/layout/Layout';
 
 // data, so if the number of routes grows or markup changes, we wont have to manage all the html manually
-var pages = [
+const pages = [
 	{
 		url: '/',
-		name: 'dashboard',
+		name: 'Dashboard',
 		icon: <span className="fontIcon icon-newspaper"></span>,
 		component: function() {
 			return require('pages/dashboard').default;
@@ -14,7 +21,7 @@ var pages = [
 	},
 	{
 		url: '/webclock',
-		name: 'web clock',
+		name: 'Web Clock',
 		icon: <span className="fontIcon icon-stopwatch"></span>,
 		component: function() {
 			return require('pages/webclock').default;
@@ -22,7 +29,7 @@ var pages = [
 	},
 	{
 		url: '/timecard',
-		name: 'time card',
+		name: 'Time Card',
 		icon: <span className="fontIcon icon-stack"></span>,
 		component: function() {
 			return require('pages/timecard').default;
@@ -30,13 +37,14 @@ var pages = [
 	},
 	{
 		url: '/schedule',
-		name: 'redux routing?',
+		name: 'Redux Routing?',
 		icon: <span className="fontIcon icon-calendar"></span>,
 		component: function() {
 			return require('pages/schedule').default;
 		},
 	},
 ];
+window.page = pages[0];
 
 // <Route />s, to be put into <Router />
 // includes <Layout /> which includes <Top /> and <Nav /> etc
@@ -49,9 +57,10 @@ pages.forEach(function(page, index) {
 				key={index}
 				path={page.url}
 				render={(props)=>{
+					// reduxStore.dispatch(reduxActions.pageChange(page));
 					const RouteComponent = page.component();
 					return (
-						<RouteComponent history={props.history} page={page} />
+						<RouteComponent page={page} />
 					);
 				}}
 			/>
@@ -65,13 +74,16 @@ pages.forEach(function(page, index) {
 class ComponentPages extends React.Component {
 	render() {
 		return (
-			<Router>
-				<Layout pages={pages}>
-					<Switch>
-						{Routes}
-					</Switch>
-				</Layout>
-			</Router>
+			<Provider store={reduxStore}>
+				<Router>
+					<Layout pages={pages}>
+						<Switch>
+							{Routes}
+							<Route path="*" component={function() { return require('pages/000/404').default; }} />  
+						</Switch>
+					</Layout>
+				</Router>
+			</Provider>
 		);
 	}
 }

@@ -1,23 +1,37 @@
 import React from 'react';
-// import { withRouter } from 'react-router'; // withRouter(YourComponent) to add this.props.history
+import { withRouter } from 'react-router-dom';
 
-// import Top from 'components/layout/components/Top';
-// import Page from 'components/layout/components/Page';
-import Hamburger from 'components/layout/components/Hamburger';
 import Nav from 'components/nav/Nav';
+import Top from './components/Top';
 
 import * as Styled from './LayoutStyled';
 
 class Layout extends React.Component {
 
+	/*
+		to detect route change using react-router-dom
+	*/
+	componentWillMount() {
+		const { history } = this.props;
+		this.unsubscribeFromHistory = history.listen(this.handleLocationChange);
+		this.handleLocationChange(history.location);
+	}
+	componentWillUnmount() {
+		if (this.unsubscribeFromHistory) this.unsubscribeFromHistory();
+	}
+	handleLocationChange = (location) => {
+		// console.log('location changed!',location);
+	}
+
+	/*
+		render
+	*/
 	render() {
 		return (
 			<Styled.Layout className="Layout">
 
 				{/* TOP content */}
-				<div className="top">
-					<h1 className="logo right">WebCLOCK <span className="fontIcon icon-stopwatch"></span></h1>
-				</div>
+				<Top />
 
 				{/* main content */}
 				<div className="content">
@@ -40,4 +54,4 @@ class Layout extends React.Component {
 	}
 }
 
-export default Layout;
+export default withRouter(Layout);

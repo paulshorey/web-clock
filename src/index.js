@@ -8,13 +8,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PrimaryErrorBoundary from 'components/error/PrimaryErrorBoundary';
 
-// top-level routes are delegated to their own file
-import Pages from './Pages';
+// all app Javascript belongs in App
+// this index file simply used for global CSS, and linking the app to the index HTML webpage
+import App from './App';
 
 // render
 ReactDOM.render(
 	<PrimaryErrorBoundary>
-		<Pages />
+		<App />
 	</PrimaryErrorBoundary>,
 	document.getElementById('root')
 );
