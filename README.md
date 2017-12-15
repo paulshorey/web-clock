@@ -12,6 +12,7 @@
 ### Unfortunately, I did not get to
 1) Testing
 2) Type safety
+3) Or the bonus points for a REST API call, but I promise I can do it, with fetch, thunk, or custom middleware :)
 &nbsp;  
 &nbsp;  
 
