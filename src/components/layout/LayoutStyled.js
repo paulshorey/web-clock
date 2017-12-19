@@ -43,13 +43,13 @@ export const Layout = styled.div`
 			left:0;
 			top:0;
 			margin:${window.theme.perimeterPadding};
-			/* the hack... */
-			opacity:0;
-			/* the nav sidebar element... */
+			/* the hack... 
+			opacity:0;*/
+			/* the nav sidebar element... 
 			&:checked + div {
 				display:block;
 				max-width:750px;
-			}
+			}*/
 		}
 		.nav {
 			width:${window.theme.sidebarWidth};
@@ -66,6 +66,10 @@ export const Layout = styled.div`
 			}
 			transition: max-width 1s;
 			font-size:1.5rem;
+			&.opened {
+				display:block;
+				max-width:500px;
+			}
 		}
 
 

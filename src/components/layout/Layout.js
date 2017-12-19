@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as uiActions from 'redux/actions/ui'; 
 import { withRouter } from 'react-router-dom';
 
 import Nav from 'components/nav/Nav';
@@ -37,9 +39,8 @@ class Layout extends React.Component {
 				<div className="content">
 
 					{/* NAV  content */}
-					<label className="hamburger label">|||</label>
-					<input type="checkbox" className="hamburger input"></input>
-					<Nav className="nav" routes={this.props.routes} />
+					<label className="hamburger label" onClick={()=>{ this.props.dispatch(uiActions.UI_NAV_TOGGLE()); }}>|||</label>
+					<Nav className={"nav"+(this.props.ui.nav_toggle.opened?' opened':' closed')} routes={this.props.routes} />
 
 					{/* ROUTE content */}
 					<div className="route">
@@ -54,4 +55,11 @@ class Layout extends React.Component {
 	}
 }
 
-export default withRouter(Layout);
+const mapStateToProps = (state) => {
+	// console.log('mapStateToProps',state.anyapi.myLocation);
+	return {
+    	ui: state.ui || {}
+  	}
+}
+
+export default withRouter(connect(mapStateToProps)(Layout));

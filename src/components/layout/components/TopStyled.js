@@ -28,6 +28,9 @@ export const Top = styled.div`
             top:0;
             left:0;
             color:#fff;
+            @media (max-width: 750px) {
+                display:none;
+            }
         }
     }
 `;
