@@ -1,8 +1,5 @@
 import React from 'react';
-
-// store
-import { connect } from 'react-redux';
-import * as reduxActions from "redux/actions";
+import { withRouter } from 'react-router-dom';
 
 // style
 import * as Styled from './indexStyled';
@@ -13,10 +10,11 @@ class ComponentPageContent extends React.Component {
             <Styled.Content>
 
               <p>WebClock page content</p>
+              <p onClick={()=>{ this.props.history.push('/timecard'); }}>Click here to programmatically be redirected to "/timecard"</p>
 
             </Styled.Content>
 		);
 	}
 }
 
-export default connect()(ComponentPageContent);
+export default withRouter(ComponentPageContent);

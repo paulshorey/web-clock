@@ -38,7 +38,7 @@ window.store = new Proxy(window.store, {
 		// custom validation
 		switch (propertyName) {
 			case 'page':
-				// no validations - this is just placeholder
+				// no validations, this is just a placeholder
 				break;
 
 			default:
