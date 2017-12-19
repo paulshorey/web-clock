@@ -2,21 +2,30 @@ import initialState from '../state/anyapi';
 
 export default function(state=initialState, action){
     switch (action.type) {
+
        case "ANYAPI_LOGIN": {
-            return action.payload || {}
+            return {}
         }
-       case "ANYAPI_GET": {
-            return action.payload || {}
+
+        case "ANYAPI_GET":
+        case "ANYAPI_GET_RECEIVED": {
+
+          if (action.data) {
+            const newState = {};
+            newState[action.payload.prop] = action.data;
+            state = Object.assign({...state}, newState);
+          }
+          return state;
+
         }
-         case "ANYAPI_GET_ERROR": {
-              return action.payload || {}
-          }
-         case "ANYAPI_GET_RECEIVED": {
-              return action.payload || {}
-          }
+           case "ANYAPI_GET_ERROR": {
+                return {}
+            }
+
        case "ANYAPI_POST": {
-            return action.payload || {}
+            return {}
         }
+
        default: {
         }
     }

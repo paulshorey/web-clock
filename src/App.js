@@ -12,7 +12,7 @@ import Layout from 'components/layout/Layout';
 const routes = [
 	{
 		url: '/',
-		name: 'Dashboard',
+		name: 'My Location',
 		icon: <span className="fontIcon icon-newspaper"></span>,
 		component: function() {
 			return require('routes/dashboard').default;
@@ -36,7 +36,7 @@ const routes = [
 	},
 	{
 		url: '/schedule',
-		name: 'Schedule',
+		name: 'Star Wars',
 		icon: <span className="fontIcon icon-calendar"></span>,
 		component: function() {
 			return require('routes/schedule').default;

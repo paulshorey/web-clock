@@ -1,52 +1,40 @@
 import React from 'react';
 
 // data
+import { connect } from 'react-redux';
 import * as anyapiActions from 'redux/actions/anyapi'; 
+
+// components
+import DataTable from 'components/data/DataTable';
 
 // style
 import * as Styled from './indexStyled';
 
+// component
 class ComponentPageContent extends React.Component {
 
 	componentWillMount(){
-		this.props.dispatch(anyapiActions.ANYAPI_GET('https://jsonplaceholder.typicode.com/'))
+		if (!this.props.myLocation) {
+			this.props.dispatch(anyapiActions.ANYAPI_GET({prop:'myLocation', url:'http://ip-api.com/json'}))
+		}
 	}
 
 	render() {
-
-		// data
-		// placeholder
-		let renderData = <p>Fetching some data...</p>;
-
-    // requested data
-    if (this.props.dataSets) {
-
-    	// filter
-    	const DataResults = [];
-    	for (let key in this.props.data) {
-    		DataResults.push(<div><label>{key}</label><input type="text" value={this.props.data[key]} /></div>);
-    	}
-
-    	// render
-			if (DataResults) {
-				renderData = <div>
-					{DataResults}
-				</div>;
-			}
-
-    }
-
-    // view
 		return (
       <Styled.Content >
 
-        <p>Dashboard page content</p>
-
-        {renderData}
+        <DataTable data={this.props.myLocation} />
 
       </Styled.Content>
 		);
 	}
 }
 
-export default ComponentPageContent;
+const mapStateToProps = (state) => {
+	// console.log('mapStateToProps',state.anyapi.myLocation);
+	return {
+    myLocation: state.anyapi.myLocation
+  }
+}
+
+export default connect(mapStateToProps)(ComponentPageContent);

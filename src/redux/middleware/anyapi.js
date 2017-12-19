@@ -11,7 +11,7 @@ const anyapi = store => next => action => {
     In case we receive an action to send an API request, send the appropriate request
     */
     request
-      .get(action.paypload)
+      .get(action.payload.url)
       .end((err, res) => {
         if (err) {
           /*
@@ -19,18 +19,20 @@ const anyapi = store => next => action => {
           */
           return next({
             type: 'ANYAPI_GET_ERROR',
+            payload: action.payload,
             err
-          })
+          });
         }
-        const data = JSON.parse(res.text)
+        const data = JSON.parse(res.text);
         /*
         Once data is received, dispatch an action telling the application
         that data was received successfully, along with the parsed data
         */
         next({
-          type: 'ANYAPI_GET_RECEIVED',
+          type: 'ANYAPI_GET',
+          payload: action.payload,
           data
-        })
+        });
       })
     break
   /*

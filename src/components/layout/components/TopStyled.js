@@ -27,6 +27,7 @@ export const Top = styled.div`
             position:absolute;
             top:0;
             left:0;
+            color:#fff;
         }
     }
 `;
