@@ -1,18 +1,52 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
+// data
+import * as anyapiActions from 'redux/actions/anyapi'; 
 
 // style
 import * as Styled from './indexStyled';
 
 class ComponentPageContent extends React.Component {
+
+	componentWillMount(){
+		this.props.dispatch(anyapiActions.ANYAPI_GET('https://jsonplaceholder.typicode.com/'))
+	}
+
 	render() {
+
+		// data
+		// placeholder
+		let renderData = <p>Fetching some data...</p>;
+
+    // requested data
+    if (this.props.dataSets) {
+
+    	// filter
+    	const DataResults = [];
+    	for (let key in this.props.data) {
+    		DataResults.push(<div><label>{key}</label><input type="text" value={this.props.data[key]} /></div>);
+    	}
+
+    	// render
+			if (DataResults) {
+				renderData = <div>
+					{DataResults}
+				</div>;
+			}
+
+    }
+
+    // view
 		return (
-            <Styled.Content >
-              <p>Dashboard page content</p>
-              <p onClick={()=>{ this.props.history.push('/webclock'); }}>Click here to programmatically be redirected to "/webclock"</p>
-            </Styled.Content>
+      <Styled.Content >
+
+        <p>Dashboard page content</p>
+
+        {renderData}
+
+      </Styled.Content>
 		);
 	}
 }
 
-export default withRouter(ComponentPageContent);
+export default ComponentPageContent;

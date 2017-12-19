@@ -36,7 +36,7 @@ const routes = [
 	},
 	{
 		url: '/schedule',
-		name: 'Redux Routing?',
+		name: 'Schedule',
 		icon: <span className="fontIcon icon-calendar"></span>,
 		component: function() {
 			return require('routes/schedule').default;
@@ -60,7 +60,7 @@ routes.forEach(function(route, index) {
 					const RouteComponent = route.component();
 					return (
 						<Layout route={route} routes={routes}>
-							<RouteComponent route={route} routes={routes}/>
+							<RouteComponent />
 						</Layout>
 					);
 				}}

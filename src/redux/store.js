@@ -2,10 +2,10 @@ import {applyMiddleware, createStore, combineReducers}  from "redux";
 
 import logger from "redux-logger";
 
-import * as reducers from "redux/reducers";
+import anyapi from "redux/reducers/anyapi";
 
 const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
-const reducer = combineReducers(reducers);
+const reducer = combineReducers(anyapi);
 const store = createStoreWithMiddleware(reducer);
 
 export default store;
