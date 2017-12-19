@@ -43,7 +43,6 @@ const pages = [
 		},
 	},
 ];
-window.page = pages[0];
 
 // <Route />s, to be put into <Router />
 // includes <Layout /> which includes <Top /> and <Nav /> etc
@@ -56,10 +55,16 @@ pages.forEach(function(page, index) {
 				key={index}
 				path={page.url}
 				render={(props)=>{
+					/* 
+						data
+					*/
 					window.store.page = page;
+					/*
+						action
+					*/
 					const RouteComponent = page.component();
 					return (
-						<RouteComponent page={page} />
+						<RouteComponent />
 					);
 				}}
 			/>
