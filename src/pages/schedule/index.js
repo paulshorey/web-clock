@@ -9,6 +9,7 @@ import * as Styled from './indexStyled';
 
 class ComponentPageContent extends React.Component {
 	componentWillMount(){
+		console.error('			***			/schedule componentWillMount',this.props);
 		this.props.dispatch(reduxActions.pageChange(this.props.page));
 	}
 	render() {

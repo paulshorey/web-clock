@@ -1,12 +1,37 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { render } from 'react-dom';
+import { connect, Provider } from 'react-redux';
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import { Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 
-// global data
-import {Provider} from "react-redux";
-import reduxStore from "redux/store";
+import createHistory from 'history/createBrowserHistory';
 
-// app components
+import logger from "redux-logger";
+
+// app data
+import * as appReducers from "redux/reducers";
+
+// app view
 import Layout from 'components/layout/Layout';
+
+// done importing...
+
+const history = createHistory();
+const middleware = routerMiddleware(history);
+
+const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
+const store = createStoreWithMiddleware(
+  // combineReducers({...appReducers, routing:routerReducer}),
+  routerReducer,
+  applyMiddleware(middleware),
+);
+
+const ConnectedSwitch = connect(state => ({
+  location: state.location
+}))(Switch);
+
 
 // data, so if the number of routes grows or markup changes, we wont have to manage all the html manually
 const pages = [
@@ -43,7 +68,6 @@ const pages = [
 		},
 	},
 ];
-window.page = pages[0];
 
 // <Route />s, to be put into <Router />
 // includes <Layout /> which includes <Top /> and <Nav /> etc
@@ -67,22 +91,28 @@ pages.forEach(function(page, index) {
 	}
 });
 
+const AppContainer = () => (
+	<ConnectedSwitch>
+		{Routes}
+		<Route path="*" component={function() { return require('pages/000/404').default; }} />  
+	</ConnectedSwitch>
+);
+
+const App = connect(state => ({
+  location: state.location,
+}))(AppContainer)
 
 // render component
-// requires ${Routes} to be an array of <Route />s
 class ComponentPages extends React.Component {
 	render() {
 		return (
-			<Provider store={reduxStore}>
-				<Router>
-					<Layout pages={pages}>
-						<Switch>
-							{Routes}
-							<Route path="*" component={function() { return require('pages/000/404').default; }} />  
-						</Switch>
-					</Layout>
-				</Router>
-			</Provider>
+			<Provider store={store}>
+		    <ConnectedRouter history={history}>
+		    	<Layout pages={pages}>
+		      	<App />
+		      </Layout>
+		    </ConnectedRouter>
+		  </Provider>
 		);
 	}
 }
