@@ -23,5 +23,10 @@ export const Top = styled.div`
                 vertical-align: top;
             }
         }
+        .message {
+            position:absolute;
+            top:0;
+            left:0;
+        }
     }
 `;

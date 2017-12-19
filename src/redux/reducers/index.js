@@ -1,11 +1,33 @@
-import initialState from '../initialState';
+import initialState from '../state';
 
-export function page(state=initialState, action){
+
+export function ui(state=initialState.ui, action){
     switch (action.type) {
-       case "PAGE_CHANGE": {
+       case "UI_POPUP": {
             return action.payload || {}
         }
-        default: {
+       case "UI_MESSAGE": {
+            return action.payload || {}
+        }
+       default: {
+        }
+    }
+    return state;
+  }
+  
+
+export function data(state=initialState.data, action){
+    switch (action.type) {
+       case "MYAPI_LOGIN": {
+            return action.payload || {}
+        }
+       case "MYAPI_GET": {
+            return action.payload || {}
+        }
+       case "MYAPI_POST": {
+            return action.payload || {}
+        }
+       default: {
         }
     }
     return state;

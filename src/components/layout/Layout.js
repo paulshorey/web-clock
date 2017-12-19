@@ -31,7 +31,7 @@ class Layout extends React.Component {
 			<Styled.Layout className="Layout">
 
 				{/* TOP content */}
-				<Top />
+				<Top route={this.props.route} />
 
 				{/* main content */}
 				<div className="content">
@@ -39,11 +39,11 @@ class Layout extends React.Component {
 					{/* NAV  content */}
 					<label className="hamburger label">|||</label>
 					<input type="checkbox" className="hamburger input"></input>
-					<Nav className="nav" pages={this.props.pages} />
+					<Nav className="nav" routes={this.props.routes} />
 
-					{/* PAGE content */}
-					<div className="page">
-						<div className="pageContent">
+					{/* ROUTE content */}
+					<div className="route">
+						<div className="routeContent">
 							{this.props.children}
 						</div>
 					</div>

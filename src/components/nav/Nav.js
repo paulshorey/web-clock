@@ -31,7 +31,7 @@ class ComponentNav extends React.Component {
 	render() {
 		return (
 			<Styled.Nav className={this.props.className + " Nav"}>
-				{this.renderLinks(this.props.pages)}
+				{this.renderLinks(this.props.routes)}
 			</Styled.Nav>
 		);
 	}

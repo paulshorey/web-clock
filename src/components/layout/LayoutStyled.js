@@ -72,7 +72,7 @@ export const Layout = styled.div`
 		/*
 			etc
 		*/
-		.page {
+		.route {
 			background:${window.theme.colorDark3};
 			color:${window.theme.colorDark1};
 			flex-grow:1;
@@ -80,7 +80,7 @@ export const Layout = styled.div`
 				padding:${window.theme.perimeterPadding};
 			}
 			font-size:1rem;
-			.pageContent {
+			.routeContent {
 				@media (max-width: 750px) {
 					min-width: calc(100vw - ${window.theme.perimeterPadding} - ${window.theme.perimeterPadding});
 				}
