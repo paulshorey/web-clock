@@ -5,10 +5,10 @@ import * as Styled from './TopStyled';
 class Top extends React.Component {
 
 	render() {
-        const { page={}, className='' } = this.props;
+        const { className='' } = this.props;
         return (
             <Styled.Top className={className + " Top"}>
-                <h1 className="logo right">{page.name} {page.icon}</h1>
+                <h1 className="logo right">{this.props.page.name} {this.props.page.icon}</h1>
             </Styled.Top>
         );
     }
