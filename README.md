@@ -12,13 +12,11 @@
 ### Unfortunately, I did not get to
 1) Testing
 2) Type safety
-3) Or the bonus points for a REST API call, but I promise I can do it, with fetch, thunk, or custom middleware :)
 &nbsp;  
 &nbsp;  
 
 ### Notes:
-Redux and React-Router are not compatible. Which library should manage routing state?  
-[(here's a great read)](https://hackernoon.com/redux-and-react-router-v4-a-tale-of-two-datastores-8dd91f47d14e)  
+Instead of doing the "dropdown" menu on smallest screen size, I kept it as a "slide-out", as Material UI suggests. Otherwise, I have not tried to follow any Material UI guidelines.
 &nbsp;  
 &nbsp;  
 More info included in the assignment app.  
